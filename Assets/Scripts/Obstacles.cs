@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
+
     [SerializeField] private float moveSpeed;
 
     // Update is called once per frame

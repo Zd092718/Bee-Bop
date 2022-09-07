@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Ground")
         {
             Die();
+            AdManager.instance.ShowAds();
             GameManager.instance.GameOver();
             GameManager.instance.StoreHighScore();
         }

@@ -15,7 +15,7 @@ public class Obstacles : MonoBehaviour
         if (transform.position.x < -12f)
         {
             Destroy(gameObject);
-            GameManager.instance.IncrementScore();
+            //GameManager.instance.IncrementScore();
         }
     }
 }

@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             Die();
             GameManager.instance.GameOver();
+            GameManager.instance.StoreHighScore();
         }
     }
 

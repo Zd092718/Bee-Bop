@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private float scoreMultiplier;
 
+    public const string HighScoreKey = "HighScore";
     private bool isGameOver = false;
-    private int score = 0;
+    private float score;
 
     private void Awake()
     {
@@ -22,6 +24,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOverScreen.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(isGameOver) { return; }
+        score += Time.deltaTime * scoreMultiplier;
+        scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
     }
 
     public void GameOver()
@@ -34,15 +43,15 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(true);
     }
 
-    public void IncrementScore()
-    {
-        if (!isGameOver)
-        {
-            score ++;
+    //public void IncrementScore()
+    //{
+    //    if (!isGameOver)
+    //    {
+    //        score ++;
 
-            scoreText.text = "Score: " + score.ToString();
-        }
-    }
+    //        scoreText.text = "Score: " + score.ToString();
+    //    }
+    //}
 
     public void RestartGame()
     {
@@ -52,5 +61,15 @@ public class GameManager : MonoBehaviour
     public void QuitToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void StoreHighScore()
+    {
+        int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+
+        if (score > currentHighScore)
+        {
+            PlayerPrefs.SetInt(HighScoreKey, Mathf.FloorToInt(score));
+        }
     }
 }

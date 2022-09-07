@@ -36,15 +36,21 @@ public class ObstacleSpawner : MonoBehaviour
         {
             //spawn at top
             Instantiate(obstacles[randObstacle], spawnPosition, newRot);
+
         }
         else
         {
             //spawn at bottom
-            Vector3 topSpawnPos = new Vector3(spawnPosition.x, 3.71f, spawnPosition.z);
+            Vector3 topSpawnPos = new Vector3(spawnPosition.x, 3f, spawnPosition.z);
             Quaternion topSpawnRot = Quaternion.Euler(180f, 180f, 0f); 
             Instantiate(obstacles[randObstacle], topSpawnPos, topSpawnRot);
         }
 
 
+    }
+
+    public void StopSpawning()
+    {
+        StopCoroutine(SpawnObstacles());
     }
 }

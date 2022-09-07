@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 1000;
     [SerializeField] private float deathLaunch = 500;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject powPrefab;
     private Rigidbody2D rb;
     private BoxCollider2D collider;
     private bool isDead;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(powPrefab, transform.position, Quaternion.identity);
         rb.AddForce(transform.up * deathLaunch);
         collider.enabled = false;
         anim.SetTrigger("Die");

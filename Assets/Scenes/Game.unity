@@ -798,8 +798,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2112132772}
     - target: {fileID: 741762997851560977, guid: 8dd55eeb5a7fb8744ab63178c7e8ce3b, type: 3}
+      propertyPath: powPrefab
+      value: 
+      objectReference: {fileID: 1233178263411547405, guid: 198d3c8171d215943944b129af1f353f, type: 3}
+    - target: {fileID: 741762997851560977, guid: 8dd55eeb5a7fb8744ab63178c7e8ce3b, type: 3}
       propertyPath: deathLaunch
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 741762997851560979, guid: 8dd55eeb5a7fb8744ab63178c7e8ce3b, type: 3}
       propertyPath: m_IsTrigger
